@@ -17,9 +17,12 @@ describe('AdminPanel', () => {
         const wrapper = shallow(<AdminPanel/>);
         //console.log(wrapper.debug());
         expect(wrapper.find('div').text()).toBe('AdminPanel');
-    }
+   })
 
-    )
+    it('Snapshot matches', () => {
+        const wrapper = shallow(<AdminPanel/>);
+        expect(wrapper).toMatchSnapshot();
+    })
 
 
 })

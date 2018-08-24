@@ -14,9 +14,8 @@ it('App renders without a problem', ()=> {
     ReactDOM.unmountComponentAtNode(div);
 })
 
-it('Order renders',() => {
+it('Snapshot matches',() => {
     const wrapper=shallow(<App/>);
-    //console.log(wrapper.debug());
-    expect(wrapper.find('div').text()).toBe('Order');
+    expect(wrapper).toMatchSnapshot();
 })
 })
