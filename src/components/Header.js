@@ -38,8 +38,7 @@ this.setState({ clicked: !this.state.clicked })
        }
        return (
        <div className="row header" style={headerCss} onClick={this.handleClick}>
-       <center><h1>this.bookstoreName</h1></center>
-
+               <h1><center>{this.state.bookstoreName}</center></h1>
        </div>
        );
     }
