@@ -40,7 +40,8 @@ this.setState({ clicked: !this.state.clicked })
        return (
        <div className="row header" style={headerCss} onClick={this.handleClick}>
                <h1><center>{this.state.bookstoreName}</center></h1>
-               <Link to="admin">Go to admin panel</Link>
+              
+               <Link to="admin"><button className="btn btn-info goToAdmin">Manage</button></Link>
        </div>
        );
     }

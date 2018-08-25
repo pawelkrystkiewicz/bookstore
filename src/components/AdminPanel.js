@@ -1,25 +1,26 @@
 import React from 'react';
+import {fbase} from '../fbase'
 class AdminPanel extends React.Component {
 
-    constructor(){
-super();
-this.state={
-book: {
-    name: "",
-    author: "",
-    description: "",
-    onStock: false,
-    image: ""
-},
+constructor(){
+        super();
+        this.state={
+            books:[],
+            book: {
+                name: "",
+                author: "",
+                description: "",
+                onStock: false,
+                image: ""
+                },
 
 
-}
+            }
 };
 
 handleChange = (event)=> {
-    
-    
-    let newBook;
+
+let newBook;
 if(event.target.name==="onStock")
 {
 newBook={
@@ -35,15 +36,18 @@ newBook={
 }
 this.setState({
     book : newBook
-})
-
+});
 }
+
 addNewBook=(event)=>{
+    let newBook;
     event.preventDefault();
+
     this.props.addBook(newBook);
 
     this.setState(
   {
+    books: [...this.state.books, newBook],
     book:
     {
        name: "",
@@ -56,6 +60,17 @@ addNewBook=(event)=>{
   });
 }
 
+
+componentDidMount(){
+    this.ref=fbase.syncState('bookstore/books', {
+        context:this,
+        state: 'books'
+    });
+}
+
+componentWillUnmount(){
+fbase.removeBiniding(this.ref)
+}
     render() {
 
         const adminCss={

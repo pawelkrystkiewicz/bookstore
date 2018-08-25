@@ -7,7 +7,7 @@ import PageNotFound from './PageNotFound';
 
 export default class Router extends React.Component{
     render(){
-        retunr(
+        return(
         <BrowserRouter>
         <Switch>
         <Route exact path ='/' component={App}/>
