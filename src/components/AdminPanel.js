@@ -1,6 +1,7 @@
 import React from 'react';
 class AdminPanel extends React.Component {
-constructor(){
+
+    constructor(){
 super();
 this.state={
 book: {
@@ -10,12 +11,14 @@ book: {
     onStock: false,
     image: ""
 },
-books:[]
+
 
 }
 };
 
 handleChange = (event)=> {
+    
+    
     let newBook;
 if(event.target.name==="onStock")
 {
@@ -36,16 +39,11 @@ this.setState({
 
 }
 addNewBook=(event)=>{
-    event.preventDefalut();
-    let newBooks=[this.state.books];
-    let newBook = {...this.state.book};
-
-    newBooks.push(newBook);
+    event.preventDefault();
+    this.props.addBook(newBook);
 
     this.setState(
   {
-    books : newBooks,
-
     book:
     {
        name: "",
@@ -54,9 +52,8 @@ addNewBook=(event)=>{
        onStock: false,
        image: ""
     }
+
   });
-
-
 }
 
     render() {
@@ -83,7 +80,7 @@ addNewBook=(event)=>{
                         onChange={this.handleChange}
                         />
                      </div>
-                    <div className="form-group">
+                    <div className="form-group checkbox">
                         <input type="checkbox" id="onStock" name="onStock" className="form-check-input"
                         value={this.state.book.onStock}
                         onChange={this.handleChange} />

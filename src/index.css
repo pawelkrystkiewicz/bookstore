@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: aquamarine;
+  text-align: left;
+  background-color:lightgray;
 }
 
 .app{
@@ -23,4 +24,22 @@ background-color:green;
 
 .adminPanel{
 background-color: black;
+}
+
+input[type="checkbox"] + .checkbox:before{
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing:antialiased;
+	width: 1em;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+input[type="checkbox"]:checked + .checkbox:before{
+	color: #2980b9;
+	animation: effect 250ms ease-in;
 }

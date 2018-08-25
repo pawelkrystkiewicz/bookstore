@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component{
 constructor() {
@@ -39,6 +40,7 @@ this.setState({ clicked: !this.state.clicked })
        return (
        <div className="row header" style={headerCss} onClick={this.handleClick}>
                <h1><center>{this.state.bookstoreName}</center></h1>
+               <Link to="admin">Go to admin panel</Link>
        </div>
        );
     }
