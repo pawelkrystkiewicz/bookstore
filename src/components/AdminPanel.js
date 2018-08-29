@@ -40,10 +40,11 @@ this.setState({
 }
 
 addNewBook=(event)=>{
-    let newBook;
+    
     event.preventDefault();
 
-    this.props.addBook(newBook);
+    let newBook = {...this.state.book};
+//    this.props.addBook(newBook);
 
     this.setState(
   {

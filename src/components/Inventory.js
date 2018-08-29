@@ -18,22 +18,21 @@ constructor(){
     }
 
     componentWillUnmount() {
-        fbase.removeBiniding(this.ref)
+        fbase.removeBiniding(this.ref);
     }
 
     render() {
-        const bookListing = this.props.books.map(book => { return( <BookView book={book} addToOrder={this.props.addToOrder}/>); })
+        const bookListing = this.state.books.map( book => {
+            return <BookView book={book}  addToOrder={this.props.addToOrder}/>
+         });
 
         return(
         <div className="inventory col-xs-6">
         <h2>Bookstore Inventory</h2>
         {bookListing}
-        
         </div>);
     }
 
 
 }
-
-
 export default Inventory;

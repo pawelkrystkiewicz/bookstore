@@ -23,4 +23,4 @@ export default class BookView extends React.Component
     }
 
 
-}
+};
