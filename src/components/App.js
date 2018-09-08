@@ -3,8 +3,11 @@ import AdminPanel from './AdminPanel';
 import Order from './Order';
 import Header from './Header';
 import Inventory from './Inventory';
-
+import ChangeLog from './ChangeLog';
+import Footer from './Footer';
 import '../index.css';
+
+
 
 class App extends React.Component{
 
@@ -32,14 +35,18 @@ render()
 {
         return(
         <div className="app container">
-            <Header/>
-                <div className="row">
-            <Order order={this.state.order} removeFromOrder={this.removeFromOrder}
-                                        />
-            <Inventory books={this.state.books}
-                    addToOrder={this.addToOrder}/>
             
+            <div className="row">
+            <Header />
+            <Order
+            order={this.state.order} 
+            removeFromOrder={this.removeFromOrder} />
+            <Inventory 
+            books={this.state.books}
+            addToOrder={this.addToOrder}/>
             </div>
+            <ChangeLog />
+            <Footer />
         </div>
           )
         }

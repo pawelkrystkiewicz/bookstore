@@ -1,5 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { ic_build } from 'react-icons-kit/md/ic_build'
+import { withBaseIcon } from 'react-icons-kit' //base for Icons
+
+const SideIconContainer = withBaseIcon(
+    {
+        size: 16,
+        style:
+            {}
+    })
+export const Build = () => <SideIconContainer icon={ic_build} />
 
 class Header extends React.Component{
 constructor() {
@@ -8,7 +18,6 @@ constructor() {
                 bookstoreName : "Black Books",
                 clicked : true,
                 textColor : "white",
-                backgroundColor : "black"
                         }
                     }
 handleClick=()=>{
@@ -16,7 +25,6 @@ if (this.state.clicked) {
         this.setState({
         bookstoreName: "Black Books",
         textColor: "white",
-        backgroundColor: "black"
       })
 }
 else
@@ -35,13 +43,13 @@ this.setState({ clicked: !this.state.clicked })
    render(){
        let headerCss={
            color: this.state.textColor,
-           backgroundColor : this.state.backgroundColor
-       }
+                     }
        return (
-       <div className="row header" style={headerCss} onClick={this.handleClick}>
-               <h1><center>{this.state.bookstoreName}</center></h1>
-              
-               <Link to="admin"><button className="btn btn-info goToAdmin">Manage</button></Link>
+       <div className="row header col-sm-3">
+               <h1><center>AWESOME BOOKSTORE</center></h1>
+                <div className="admin-button">
+               <Link to="admin"><button className="btn btn-info goToAdmin"><Build/></button></Link>
+                </div>
        </div>
        );
     }

@@ -23,16 +23,15 @@ constructor(){
 
     render() {
         const bookListing = this.state.books.map( book => {
-            return <BookView book={book}  addToOrder={this.props.addToOrder}/>
+            return <BookView book={book} 
+            addToOrder={this.props.addToOrder}/>
          });
 
         return(
-        <div className="inventory col-xs-6">
-        <h2>Bookstore Inventory</h2>
+        <div className="inventory col-md-6 row">
+        {/*<h2>Stock</h2>*/}
         {bookListing}
         </div>);
     }
-
-
 }
 export default Inventory;

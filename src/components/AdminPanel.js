@@ -1,6 +1,11 @@
 import React from 'react';
-import {fbase} from '../fbase'
+import {fbase, firebaseApp} from '../fbase'
+
+
 class AdminPanel extends React.Component {
+
+
+    
 
 constructor(){
         super();
@@ -13,10 +18,19 @@ constructor(){
                 onStock: false,
                 image: ""
                 },
+            loggedIn : false,
+            email:"",
+            password:""
 
 
-            }
+            };
 };
+handleLoginChange = (event) => {
+    this.setState({
+    [event.target.name]: event.target.value
+     })
+ }
+
 
 handleChange = (event)=> {
 
@@ -40,7 +54,6 @@ this.setState({
 }
 
 addNewBook=(event)=>{
-    
     event.preventDefault();
 
     let newBook = {...this.state.book};
@@ -72,6 +85,21 @@ componentDidMount(){
 componentWillUnmount(){
 fbase.removeBiniding(this.ref)
 }
+
+authenticate=(event)=>{
+    event.preventDefault();
+    firebaseApp.auth().signInAndRetrieveDataWithEmailAndPassword(this.state.email, this.state.password)
+    //console.log(`${this.state.email} ${this.state.password}`);
+    .then( ()=> {
+        this.setState({
+        loggedIn:true
+        })
+                })
+        .catch(() => {
+            console.log("Unable to authenticate");
+        })
+
+}
     render() {
 
         const adminCss={
@@ -79,19 +107,33 @@ fbase.removeBiniding(this.ref)
         }
 
         return (
+            <div>
+            {!this.state.loggedIn &&
+            <form onSubmit={this.authenticate}>
+                <input type="text" placeholder="email" id="email" className="form-control"
+                        value={this.state.email} 
+                        onChange={this.handleLoginChange}/>
+                <input type="password" id="password" className="form-control"
+                        value={this.state.password} 
+                        onChange={this.handleLoginChange} />
+                <button type="submit" className="btn btn-primary">Login</button>
+            </form>
+            }
+            {this.state.loggedIn &&
             <div className="adminPanel col-xs-4" style={adminCss}>
             <form onSubmit={this.addNewBook}>
                 <div className="form-group">
-                <input type="text" placeholder="Book name" id="name" name="name" className="form-control" 
-                            value={this.state.book.name} onChange={this.handleChange}/>
+                <input type="text" placeholder="Book name" id="name" name="name" className="form-control"
+                            value={this.state.book.name} 
+                            onChange={this.handleChange}/>
                 </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Book author" id="author" name="author" className="form-control" 
+                        <input type="text" placeholder="Book author" id="author" name="author" className="form-control"
                         value={this.state.book.author}
                         onChange={this.handleChange}/>
                     </div>
                     <div className="form-group">
-                        <textarea placeholder="Book description" id="description" name="description" className="form-control" 
+                        <textarea placeholder="Book description" id="description" name="description" className="form-control"
                         value={this.state.book.description}
                         onChange={this.handleChange}
                         />
@@ -108,11 +150,10 @@ fbase.removeBiniding(this.ref)
                         onChange={this.handleChange}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Add</button>
+                    <button type="submit" className="btn btn-info goToAdmin">Add</button>
             </form>
             </div>
-                );
-                
+        } </div>  );
              }
 }
 
