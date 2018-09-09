@@ -8,6 +8,7 @@
 
 /*effects*/
 background-color: var(--anti-flash-white);
+display: block;
 }
 
 html{

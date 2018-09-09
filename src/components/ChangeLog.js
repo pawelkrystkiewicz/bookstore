@@ -37,7 +37,7 @@ export default class ChangeLog extends React.Component {
             <h2>To do/Change Log</h2>
                 <ol>
                     <li>Style <CSS/></li>
-                    <li><Add/>New components - LoginForm & BookForm <ArrowRight /> AdminPanel</li>
+                    <li><Add/>New components - LoginForm & BookForm <ArrowRight /> AdminPanel | Data edition doesn't work</li>
                     <li><Add/>LOGOUT button for user in <Build/>AdminPanel <ArrowRight /> firebaseApp.auth().signOut()</li>
                     <li><Add/>add to App.js Footer.js with information about author. Placed and the bottom of the site</li>
                     <li>modify BookView to show <b>book description</b></li>
