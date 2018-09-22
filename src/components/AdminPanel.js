@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginPanel from "./LoginPanel";
 import AddBook from "./AddBookForm";
+import AdminBookListing from "./AdminBookListing";
 
 class AdminPanel extends React.Component {
 
@@ -20,11 +21,14 @@ changeLoggedIn=(newValue)=>this.setState({loggedIn: newValue});
             {!this.state.loggedIn &&
             <LoginPanel changeLoggedIn={this.changeLoggedIn}/>
             }
-            {this.state.loggedIn && <AddBook/>}
+            {this.state.loggedIn && 
+            <React.Fragment>
+            <AddBook/>
+            <AdminBookListing/>
+            </React.Fragment>
+            }
         </div>
         );
     }
 }
-
-
 export default AdminPanel;

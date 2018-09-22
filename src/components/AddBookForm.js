@@ -16,7 +16,6 @@ class AddBook extends React.Component {
                 onStock: false,
                 image: ""
             }
-           
         };
     };
 

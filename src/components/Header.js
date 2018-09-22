@@ -46,7 +46,7 @@ this.setState({ clicked: !this.state.clicked })
                      }
        return (
        <div className="row header col-sm-3">
-               <h1><center>AWESOME BOOKSTORE</center></h1>
+               <h1><center>Bookstore</center></h1>
                 <div className="admin-button">
                <Link to="admin"><button className="btn btn-info goToAdmin"><Build/></button></Link>
                 </div>
