@@ -10,18 +10,18 @@ constructor(){
         this.state={loggedIn : false};
 };
 
-changeLoggedIn=(newValue)=>this.setState({loggedIn: newValue});
+changeLoggedIn = (newValue) => this.setState({
+    loggedIn: newValue
+});
 
-
-
-    render() {
-
-        return (
+render() {
+    return (
         <div>
             {!this.state.loggedIn &&
             <LoginPanel changeLoggedIn={this.changeLoggedIn}/>
             }
-            {this.state.loggedIn && 
+            {
+            this.state.loggedIn &&
             <React.Fragment>
             <AddBook/>
             <AdminBookListing/>

@@ -23,7 +23,7 @@ constructor(){
 
     render() {
         const bookListing = this.state.books.map( book => {
-            return <BookView book={book} 
+            return <BookView book={book}
             addToOrder={this.props.addToOrder}/>
          });
 

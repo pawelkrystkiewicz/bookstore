@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { ic_build } from 'react-icons-kit/md/ic_build'
-import { withBaseIcon } from 'react-icons-kit' //base for Icons
+import {ic_build} from 'react-icons-kit/md/ic_build'
+import {withBaseIcon} from 'react-icons-kit' //base for Icons
 
 const SideIconContainer = withBaseIcon(
     {

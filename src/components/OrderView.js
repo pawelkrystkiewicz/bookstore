@@ -20,25 +20,17 @@ export const RemoveFromCart = () => < SideIconContainer icon = {
 export default class OrderView extends React.Component {
 
     render() {
-        return ( <
-            div className = "orderView row " >
-            <
-            div className = "col-md-4" >
-            <
-            span > {
-                this.props.book.name
-            } < /span> <
-            /div> <
-            div className = "col-md-1" >
-            <
-            button className = "btn btn-danger"
+        return ( <div className = "orderView row "> <div className = "col-md-4" >
+            <span > 
+            {this.props.book.name}
+            </span>
+            </div>
+            <div className = "col-md-1" >
+            <button className = "btn btn-danger"
             onClick = {
                 (event) => this.props.removeFromOrder(this.props.book)
             } >
-            <
-            RemoveFromCart / > < /button> <
-            /div> <
-            /div>
+            <RemoveFromCart/> </button> </div> </div>
         );
 
 
